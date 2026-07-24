@@ -1,3 +1,6 @@
+﻿# Agentic Outreach Engine
+
+🔗 **Live Demo:** https://agentic-outreach-engine-n74otwnzchxzaqjpausc2w.streamlit.app/
 # agentic-outreach-engine
 
 A production shaped agentic system that autonomously researches a company,
@@ -15,13 +18,13 @@ production deployment.
 
 The system is a LangGraph with 6 nodes and 4 conditional edges.
 
-intake → research → icp ──[not_fit]──→ sink
-│
-└──[fit]──→ draft → verify ──[passed]──→ sink
-│
-└──[failed, retries left]──→ draft (loop)
-│
-└──[max retries hit]──→ sink
+intake â†’ research â†’ icp â”€â”€[not_fit]â”€â”€â†’ sink
+â”‚
+â””â”€â”€[fit]â”€â”€â†’ draft â†’ verify â”€â”€[passed]â”€â”€â†’ sink
+â”‚
+â””â”€â”€[failed, retries left]â”€â”€â†’ draft (loop)
+â”‚
+â””â”€â”€[max retries hit]â”€â”€â†’ sink
 
 
 ### Nodes
@@ -63,3 +66,4 @@ python -m scripts.run_evals
 # Run with Docker
 docker compose up --build
 ```
+
