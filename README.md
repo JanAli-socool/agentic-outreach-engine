@@ -46,20 +46,20 @@ intake → research → icp ──[not_fit]──→ sink
 
 ---
 
-## Running
-
-### Local (Python)
+## Running For Local & Docker Based
 
 ```bash
-python -m venv venv
-# Windows
-.\venv\Scripts\Activate.ps1
-# Linux / Mac
-source venv/bin/activate
+# Clone & setup
+git clone https://github.com/JanAli-socool/agentic-outreach-engine.git
+cd agentic-outreach-engine
+cp .env.example .env   # Add Groq & Tavily keys
 
-pip install -r requirements.txt
-cp .env.example .env
-# add your GROQ_API_KEY and TAVILY_API_KEY to .env
+# Run locally
+python -m scripts.run_single vercel.com
 
-python scripts/run_single.py vercel.com
-python scripts/run_evals.py
+# Run eval suite
+python -m scripts.run_evals
+
+# Run with Docker
+docker compose up --build
+```
