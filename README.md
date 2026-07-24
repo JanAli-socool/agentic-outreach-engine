@@ -1,7 +1,8 @@
 ﻿# Agentic Outreach Engine
 
-🔗 **Live Demo:** https://agentic-outreach-engine-n74otwnzchxzaqjpausc2w.streamlit.app/
-# agentic-outreach-engine
+**Live Demo:** https://agentic-outreach-engine-n74otwnzchxzaqjpausc2w.streamlit.app/
+
+# Brief About System
 
 A production shaped agentic system that autonomously researches a company,
 qualifies it against an Ideal Customer Profile (ICP), drafts a personalized
@@ -66,7 +67,3 @@ python -m scripts.run_evals
 # Run with Docker
 docker compose up --build
 ```
-# Agentic Outreach Engine
-
-🔗 **Live Demo:** https://agentic-outreach-engine-n74otwnzchxzaqjpausc2w.streamlit.app/
-
