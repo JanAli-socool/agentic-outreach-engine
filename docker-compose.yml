@@ -1,0 +1,11 @@
+services:
+  agent:
+    build: .
+    image: agentic-outreach-engine:latest
+    container_name: agentic-outreach-engine
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    stdin_open: true
+    tty: true
