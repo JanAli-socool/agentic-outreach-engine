@@ -19,14 +19,31 @@ production deployment.
 
 The system is a LangGraph with 6 nodes and 4 conditional edges.
 
-intake â†’ research â†’ icp â”€â”€[not_fit]â”€â”€â†’ sink
-â”‚
-â””â”€â”€[fit]â”€â”€â†’ draft â†’ verify â”€â”€[passed]â”€â”€â†’ sink
-â”‚
-â””â”€â”€[failed, retries left]â”€â”€â†’ draft (loop)
-â”‚
-â””â”€â”€[max retries hit]â”€â”€â†’ sink
+Here is the flow:
 
+Stage 1: Intake
+Receives a company website (like "stripe.com") and validates it.
+
+Stage 2: Research
+Automatically scrapes the company's homepage and searches the web for recent news.
+
+Stage 3: ICP Check (First Decision Point)
+Decides if the company fits your ideal customer profile:
+
+If NO → Stop here. Log it as "not a fit" and end.
+If YES → Continue to write an email.
+Stage 4: Draft
+Writes a personalized cold email using AI, citing specific facts from the research.
+
+Stage 5: Verify (Second Decision Point)
+A separate AI checks if the email contains any made-up facts (hallucinations):
+
+If PASSED → Go to final output.
+If FAILED → Check retry budget:
+If retries left → Send back to Draft with specific corrections (loop back)
+If max retries hit → Output the draft anyway, but mark it "unverified"
+Stage 6: Sink
+Saves the final result (email + full audit trail) to a file.
 
 ### Nodes
 
